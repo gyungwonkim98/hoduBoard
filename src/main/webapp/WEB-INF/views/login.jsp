@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -13,6 +15,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- 나의 스타일 추가 -->
     <link rel="stylesheet" href="css/login.css?v=1234">
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $("#loginBtn").on("click", function (e) {
+                $("#loginForm").submit();
+            });
+        });
+    </script>
 
 </head>
 
@@ -61,26 +71,26 @@
         <div class="col align-items-center flex-col sign-in">
             <div class="form-wrapper align-items-center">
                 <div class="form sign-in">
-                    <div class="input-group">
-                        <i class='bx bxs-user'></i>
-                        <input type="text" placeholder="Username">
-                    </div>
-                    <div class="input-group">
-                        <i class='bx bxs-lock-alt'></i>
-                        <input type="password" placeholder="Password">
-                    </div>
-                    <button>
-                        Sign in
-                    </button>
+                    <form:form id="loginForm" action="/loginCheck.do" method="post">
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            <input type="text" name="userId" placeholder="Username">
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            <input type="password" name="userPwd" placeholder="Password">
+                        </div>
+                        <button type="button" id="loginBtn">login</button>
+                    </form:form>
                     <p>
                         <b>
                             Forgot password?
                         </b>
                     </p>
                     <p>
-              <span>
-                Don't have an account?
-              </span>
+                  <span>
+                    Don't have an account?
+                  </span>
                         <b onclick="toggle()" class="pointer">
                             Sign up here
                         </b>
@@ -91,6 +101,7 @@
 
             </div>
         </div>
+
         <!-- END SIGN IN -->
     </div>
     <!-- END FORM SECTION -->
