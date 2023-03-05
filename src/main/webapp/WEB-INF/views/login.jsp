@@ -21,6 +21,12 @@
             $("#loginBtn").on("click", function (e) {
                 $("#loginForm").submit();
             });
+
+            $("#signUpBtn").on("click", function (e) {
+                $("#signUpForm").submit();
+            });
+
+
         });
     </script>
 
@@ -35,25 +41,37 @@
         <div class="col align-items-center flex-col sign-up">
             <div class="form-wrapper align-items-center">
                 <div class="form sign-up">
-                    <div class="input-group">
-                        <i class='bx bxs-user'></i>
-                        <input type="text" placeholder="Username">
-                    </div>
-                    <div class="input-group">
-                        <i class='bx bx-mail-send'></i>
-                        <input type="email" placeholder="Email">
-                    </div>
-                    <div class="input-group">
-                        <i class='bx bxs-lock-alt'></i>
-                        <input type="password" placeholder="Password">
-                    </div>
-                    <div class="input-group">
-                        <i class='bx bxs-lock-alt'></i>
-                        <input type="password" placeholder="Confirm password">
-                    </div>
-                    <button>
-                        Sign up
-                    </button>
+                    <form:form id="signUpForm" action="/signup.do" method="post">
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            <input type="text" name="userNm" placeholder="userNm">
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            <input type="text" name="userId" placeholder="userId">
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bx-mail-send'></i>
+                            <input type="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            <input type="password" name="userPwd" placeholder="userPwd">
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            <input type="password" placeholder="Confirm password">
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            <input type="number" name="mobile" placeholder="mobile">
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            <input type="text" name="auth" placeholder="auth">
+                        </div>
+                        <button type="button" id="signUpBtn">Sign up</button>
+                    </form:form>
                     <p>
               <span>
                 Already have an account?
